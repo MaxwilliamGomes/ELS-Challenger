@@ -1,0 +1,98 @@
+version: 2
+
+sources:
+  - name: public
+    description: "Schema de origem contendo os dados brutos do sistema legado."
+    tables:
+      - name: cargo
+      - name: dependentes
+      - name: empresa
+      - name: funcionarios
+      - name: plano_saude
+      - name: ponto
+
+models:
+  - name: silver_cargo
+    description: "Tabela de cargos com salários corrigidos e níveis padronizados sem acentuação."
+    columns:
+      - name: cargoid
+        tests:
+          - unique
+          - not_null
+      - name: salariobase
+        description: "Valor base do salário, corrigido para valores positivos."
+      - name: nivel_padronizado
+        description: "Nível do cargo padronizado (ex: JUNIOR, PLENO, SENIOR)."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['JUNIOR', 'PLENO', 'SENIOR', 'NAO INFORMADO']
+
+  - name: silver_dependentes
+    description: "Dados dos dependentes com a extração do grau de parentesco da string original."
+    columns:
+      - name: dependenteid
+        tests:
+          - unique
+          - not_null
+      - name: funcionarioid
+        tests:
+          - relationships:
+              arguments: 
+                to: ref('silver_funcionarios') 
+                field: funcionarioid           
+      - name: parentesco_descricao
+        description: "Descrição limpa do parentesco (ex: Pai, Filho, Conjuge)."
+        
+  - name: silver_empresas
+    description: "Cadastro de empresas com CNPJ limpo (apenas números) e flag de ativa convertida para booleano."
+    columns:
+      - name: empresaid
+        tests:
+          - unique
+          - not_null
+      - name: cnpj_limpo
+        description: "CNPJ contendo apenas os 14 dígitos numéricos."
+      - name: is_ativa
+        description: "Flag booleana indicando se a empresa está ativa."
+
+  - name: silver_funcionarios
+    description: "Tabela mestre de funcionários com CPF tratado, nomes em Proper Case e tratamento de IDs nulos."
+    columns:
+      - name: funcionarioid
+        tests:
+          - unique
+          - not_null
+      - name: cpf_limpo
+        description: "CPF contendo apenas os 11 dígitos numéricos."
+      - name: cargoid
+        description: "ID do cargo. Valores nulos na origem foram convertidos para -1."
+
+  - name: silver_PlanoSaude
+    description: "Informações de planos de saúde com nomes padronizados e valores validados."
+    columns:
+      - name: planosaudeid
+        tests:
+          - unique
+          - not_null
+      - name: nomeplano_padronizado
+        description: "Nome do plano sem acentos e formatado (ex: Basico, Intermediario, Premium)."
+
+  - name: silver_ponto
+    description: "Tabela de registros de ponto com conversão de tipos (DATE e TIME) e filtragem de horários inválidos (ex: 25:00, 99:99)."
+    columns:
+      - name: pontoid
+        tests:
+          - unique
+          - not_null
+      - name: data_registro
+        description: "Data do ponto convertida para o tipo DATE."
+        tests:
+          - not_null
+      - name: horaentrada_limpa
+        description: "Hora de entrada convertida para TIME. Nula se o dado original for inválido."
+      - name: horasaida_limpa
+        description: "Hora de saída convertida para TIME. Nula se o dado original for inválido."
+      - name: jornada_intervalo
+        description: "Duração calculada da jornada de trabalho (Tipo: INTERVAL)."
+    
