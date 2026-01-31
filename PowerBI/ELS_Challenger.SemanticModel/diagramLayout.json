@@ -1,0 +1,126 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 207.30295198587078,
+            "y": 0
+          },
+          "nodeIndex": "dCalendario",
+          "nodeLineageTag": "4013e9f8-c172-4dc1-8ea9-f4598f65c2e3",
+          "size": {
+            "height": 202.75,
+            "width": 179
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 752.46759125983135,
+            "y": 0
+          },
+          "nodeIndex": "dDependentes",
+          "nodeLineageTag": "01201044-ea03-4084-9212-cee9a9c06016",
+          "size": {
+            "height": 176,
+            "width": 247
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1072.3029519858708,
+            "y": 0
+          },
+          "nodeIndex": "dEmpresa",
+          "nodeLineageTag": "f3110830-a5e2-441c-858e-4b9d1412c547",
+          "size": {
+            "height": 289,
+            "width": 204
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 486.25,
+            "y": 1.25
+          },
+          "nodeIndex": "dFuncionarios",
+          "nodeLineageTag": "d6e6ba99-06ee-466f-aaa7-1b9c4eb39c78",
+          "size": {
+            "height": 380.75,
+            "width": 192
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 3.75
+          },
+          "nodeIndex": "dHora",
+          "nodeLineageTag": "95d04f5e-c102-4ef1-96a7-987f5dbb8dfd",
+          "size": {
+            "height": 316,
+            "width": 175
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 869.58736184080317,
+            "y": 605.87417298697972
+          },
+          "nodeIndex": "fFolhaPagamento",
+          "nodeLineageTag": "1f2aaede-fc77-43bf-8fb2-28798c06ae09",
+          "size": {
+            "height": 319,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 239.7109551153373,
+            "y": 604.86280480107507
+          },
+          "nodeIndex": "fPonto",
+          "nodeLineageTag": "0099af04-a553-4c2d-916c-e1f8b2b20a3e",
+          "size": {
+            "height": 320,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1326.3029519858708,
+            "y": 362.43708649348986
+          },
+          "nodeIndex": "Medidas",
+          "nodeLineageTag": "591d39a0-0641-4496-944d-d1a906b46fbb",
+          "size": {
+            "height": 511.25,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 80,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

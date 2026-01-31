@@ -1,0 +1,52 @@
+table dDependentes
+	lineageTag: 01201044-ea03-4084-9212-cee9a9c06016
+
+	column dependenteid
+		dataType: int64
+		formatString: 0
+		lineageTag: 054bf8fb-2ac8-4dd7-905c-92cebec3e8e2
+		summarizeBy: sum
+		sourceColumn: dependenteid
+
+		annotation SummarizationSetBy = Automatic
+
+	column funcionarioid
+		dataType: int64
+		formatString: 0
+		lineageTag: 811d51df-ad85-44ba-a8c5-c9fc06fc298b
+		summarizeBy: none
+		sourceColumn: funcionarioid
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomedependente
+		dataType: string
+		lineageTag: 1689a6e3-9b20-4a8b-96ec-b13c1b7756e9
+		summarizeBy: none
+		sourceColumn: nomedependente
+
+		annotation SummarizationSetBy = Automatic
+
+	column parentesco_descricao
+		dataType: string
+		lineageTag: f5479b1a-588c-4c74-917b-b0c2c75bcbe9
+		summarizeBy: none
+		sourceColumn: parentesco_descricao
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dDependentes = m
+		mode: import
+		source =
+				let
+				    Fonte = Odbc.DataSource("dsn=PostgreSQL35W", [HierarchicalNavigation=true]),
+				    postgres_Database = Fonte{[Name="postgres",Kind="Database"]}[Data],
+				    gold_Schema = postgres_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dDependentes_Table = gold_Schema{[Name="dDependentes",Kind="Table"]}[Data]
+				in
+				    dDependentes_Table
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,62 @@
+table dEmpresa
+	lineageTag: f3110830-a5e2-441c-858e-4b9d1412c547
+
+	column empresaid
+		dataType: int64
+		formatString: 0
+		lineageTag: 75015bbc-2c21-466c-90b6-ec20ddcd902a
+		summarizeBy: none
+		sourceColumn: empresaid
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomeempresa
+		dataType: string
+		lineageTag: e4895199-e3c1-4b87-a8b2-e5c54a974dff
+		summarizeBy: none
+		sourceColumn: nomeempresa
+
+		annotation SummarizationSetBy = Automatic
+
+	column cnpj_limpo
+		dataType: string
+		lineageTag: 089d9c96-de4f-45d9-a84f-346a2fb5c8f4
+		summarizeBy: none
+		sourceColumn: cnpj_limpo
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_fundacao
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 66a826ec-b822-4611-80d3-83a1af9a03db
+		summarizeBy: none
+		sourceColumn: data_fundacao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column is_ativa
+		dataType: string
+		lineageTag: 75d9e65b-0301-4c5b-86ce-5304f45ac3fb
+		summarizeBy: none
+		sourceColumn: is_ativa
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dEmpresa = m
+		mode: import
+		source =
+				let
+				    Fonte = Odbc.DataSource("dsn=PostgreSQL35W", [HierarchicalNavigation=true]),
+				    postgres_Database = Fonte{[Name="postgres",Kind="Database"]}[Data],
+				    gold_Schema = postgres_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dEmpresa_Table = gold_Schema{[Name="dEmpresa",Kind="Table"]}[Data]
+				in
+				    dEmpresa_Table
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

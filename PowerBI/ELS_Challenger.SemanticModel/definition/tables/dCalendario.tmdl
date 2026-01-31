@@ -1,0 +1,311 @@
+table dCalendario
+	lineageTag: 4013e9f8-c172-4dc1-8ea9-f4598f65c2e3
+	dataCategory: Time
+
+	column Data
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: c7f89919-2a37-4ae2-840f-9f7ae50d9f5b
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c5c4ac8-6ef0-4a76-b474-de84247d25a4
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomeMes
+		dataType: string
+		lineageTag: a6072d1b-caa6-438e-89f3-107d0ab80c0d
+		summarizeBy: none
+		sourceColumn: NomeMes
+		sortByColumn: MesNum
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesAbre
+		dataType: string
+		lineageTag: 54fb119b-5c1f-40a6-8f3e-3bbb474be4fc
+		summarizeBy: none
+		sourceColumn: MesAbre
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesAno
+		dataType: string
+		lineageTag: ba31fe94-e429-4ba9-925e-89fbdc20ff55
+		summarizeBy: none
+		sourceColumn: MesAno
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesNum
+		dataType: double
+		lineageTag: 3d13bb35-e2cf-4153-a9f7-744680604ffe
+		summarizeBy: none
+		sourceColumn: MesNum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AnoMesINT
+		dataType: double
+		lineageTag: bb5ab6d0-2ffb-4a86-b781-08a0cf7513c5
+		summarizeBy: none
+		sourceColumn: AnoMesINT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column InicioMes
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: db25fad6-821c-46d0-a450-a79061d6a4a8
+		summarizeBy: none
+		sourceColumn: InicioMes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: 351b1789-9005-4c43-affc-82b0faae2a1c
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrimestreAbreviado
+		dataType: string
+		lineageTag: bf93676a-6e1f-4023-ba91-3588a892691c
+		summarizeBy: none
+		sourceColumn: TrimestreAbreviado
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bimestre
+		dataType: string
+		lineageTag: 76fbedb2-0682-420f-825d-5d10b45f33b4
+		summarizeBy: none
+		sourceColumn: Bimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semestre
+		dataType: string
+		lineageTag: 808394f4-7107-427b-84d9-b5e07b105e3b
+		summarizeBy: none
+		sourceColumn: Semestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana
+		dataType: int64
+		formatString: 0
+		lineageTag: ef415c19-fc56-4931-942c-b6dd3fb95fb2
+		summarizeBy: none
+		sourceColumn: Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiaSemana
+		dataType: int64
+		formatString: 0
+		lineageTag: 813d97a8-a5dc-40ea-ae60-05e5824e5b25
+		summarizeBy: none
+		sourceColumn: DiaSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomeDia
+		dataType: string
+		lineageTag: 744a636b-16b3-4c8c-bad2-f60df299b08a
+		summarizeBy: none
+		sourceColumn: NomeDia
+		sortByColumn: DiaSemana
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Passado
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 84211545-6ff5-4b8e-99b2-431b4f4eef52
+		summarizeBy: none
+		sourceColumn: Passado
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnoAtual
+		dataType: string
+		lineageTag: 30b6e77b-2848-4b5c-bdac-d2deb5512c3b
+		summarizeBy: none
+		sourceColumn: AnoAtual
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesAtual
+		dataType: string
+		lineageTag: f0f4bcbb-c194-49fb-99c1-0eeaf1cd8d39
+		summarizeBy: none
+		sourceColumn: MesAtual
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia
+		dataType: int64
+		formatString: 0
+		lineageTag: e34f4c89-0438-4f58-aa77-0b29f479cebd
+		summarizeBy: none
+		sourceColumn: Dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiaDeTrabalho
+		dataType: string
+		lineageTag: 8a7a084a-ea36-4ea4-ba60-fc0b08f76a09
+		summarizeBy: none
+		sourceColumn: DiaDeTrabalho
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiaAtual
+		dataType: string
+		lineageTag: 61ac8433-0503-4185-ad5d-48f09799f390
+		summarizeBy: none
+		sourceColumn: DiaAtual
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnoMovel
+		dataType: int64
+		formatString: 0
+		lineageTag: 4531ff9a-d65a-4e97-87ea-577343be8b6b
+		summarizeBy: none
+		sourceColumn: AnoMovel
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesMovel
+		dataType: int64
+		formatString: 0
+		lineageTag: f36f3002-0cb0-4ed4-8fe4-aba6d7efba1f
+		summarizeBy: none
+		sourceColumn: MesMovel
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiaMovel
+		dataType: int64
+		formatString: 0
+		lineageTag: 664ce740-8767-4f55-a3a6-679e7c49441d
+		summarizeBy: none
+		sourceColumn: DiaMovel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCalendario = m
+		mode: import
+		source = ```
+				let
+				    // Insira a data de referência aqui
+				    MenorData = List.Min(fPonto[data_id]),
+				    MaiorData = List.Max(fPonto[data_id]),
+				    
+				    //Não alterar daqui pra baixo	
+				    
+				    DataInicio = Date.StartOfYear(MenorData),
+				    DataFim = Date.EndOfYear(MaiorData), 
+				    Dias = Duration.Days(DataFim - DataInicio) + 1,
+				    ListarDatas = List.Dates(DataInicio, Dias, #duration(1,0,0,0)),
+				    
+				    Tabela = #table(
+				        type table[
+				            Data = date,
+				            Ano = Int64.Type,
+				            NomeMes = text,
+				            MesAbre = text,
+				            MesAno = text,
+				            MesNum = number,
+				            AnoMesINT = number,
+				            InicioMes = date,
+				            Trimestre = Int64.Type,
+				            TrimestreAbreviado = text,
+				            Bimestre = text,
+				            Semestre = text,
+				            Semana = Int64.Type,
+				            DiaSemana = Int64.Type,
+				            NomeDia = text,
+				            Passado = logical,
+				            AnoAtual = text,
+				            MesAtual = text,
+				            Dia = Int64.Type,
+				            DiaDeTrabalho = text,
+				            DiaAtual = text,
+				            AnoMovel = Int64.Type,
+				            MesMovel = Int64.Type,
+				            DiaMovel = Int64.Type
+				        ],
+				        List.Transform(
+				            ListarDatas,
+				            each let
+				                currentDate = _,
+				                currentYear = Date.Year(currentDate),
+				                currentMonth = Date.Month(currentDate),
+				                currentDay = Date.Day(currentDate),
+				                today = Date.From(DateTime.LocalNow()) // Obtém a data atual
+				            in
+				            {
+				                currentDate,
+				                currentYear,
+				                Text.Proper( Date.MonthName(currentDate, "pt-BR")),
+				                Text.Proper(Text.Start(Date.MonthName(currentDate, "pt-BR"), 3)),
+				                Text.Proper(Text.Start(Date.MonthName(currentDate, "pt-BR"), 3)) & "-" & Text.End(Text.From(currentYear), 2),
+				                currentMonth,
+				                currentYear * 100 + currentMonth,
+				                Date.StartOfMonth(currentDate),
+				                Date.QuarterOfYear(currentDate),
+				                Text.From(Date.QuarterOfYear(currentDate)) & "º Trim",
+				                Text.From( Number.RoundUp( currentMonth/2,0)) & "º Bim",
+				                Text.From( Number.RoundUp( currentMonth/6,0)) & "º Sem",
+				                Date.WeekOfMonth(currentDate),
+				                Date.DayOfWeek(currentDate, Day.Monday), // Usando Day.Monday para o cálculo do Dia da Semana
+				                Date.DayOfWeekName(currentDate, "pt-BR"),
+				                if currentDate <= MaiorData then true else false,
+				                if Date.IsInCurrentYear(currentDate) then "Ano Atual" else Text.From(currentYear),
+				                if Date.IsInCurrentYear(currentDate) and Date.IsInCurrentMonth(currentDate) then "Mês Atual" else Text.Proper( Date.MonthName(currentDate, "pt-BR")),
+				                
+				                
+				                currentDay, // Dia
+				                if Date.DayOfWeek(currentDate, Day.Monday) = 6 or Date.DayOfWeek(currentDate, Day.Monday) = 7 then "N" else "S", // DiaDeTrabalho (Sab/Dom = N)
+				                if Date.IsInCurrentDay(currentDate) then "S" else "N", // DiaAtual
+				                Date.Year(today) - currentYear, // AnoMovel
+				                (Date.Year(today) - currentYear) * 12 + (Date.Month(today) - currentMonth), // MesMovel
+				                Duration.Days(today - currentDate) // DiaMovel
+				            }
+				        )
+				    )
+				in
+				    Tabela
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

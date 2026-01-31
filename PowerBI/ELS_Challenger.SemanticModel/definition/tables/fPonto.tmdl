@@ -1,0 +1,103 @@
+table fPonto
+	lineageTag: 0099af04-a553-4c2d-916c-e1f8b2b20a3e
+
+	column pontoid
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a4f027b-8c03-419a-b2b0-cf83ecc23696
+		summarizeBy: sum
+		sourceColumn: pontoid
+
+		annotation SummarizationSetBy = Automatic
+
+	column funcionarioid
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e7fb7bb-8e9c-47d3-a911-a87fc8896c70
+		summarizeBy: none
+		sourceColumn: funcionarioid
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_id
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ee2f7fa2-207e-4056-8da4-8545967e055d
+		summarizeBy: none
+		sourceColumn: data_id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column horaentrada_limpa
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: cd883189-5d61-40d8-86a4-a9fb1a75d09b
+		summarizeBy: none
+		sourceColumn: horaentrada_limpa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column horasaida_limpa
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: f55472a8-f772-4e64-ae35-e96cb1e9d725
+		summarizeBy: none
+		sourceColumn: horasaida_limpa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column jornada_duracao
+		dataType: string
+		lineageTag: 1bc7f950-68d1-46bc-822b-91a59b9a9dc7
+		summarizeBy: none
+		sourceColumn: jornada_duracao
+
+		annotation SummarizationSetBy = Automatic
+
+	column horas_trabalhadas_decimal
+		dataType: double
+		lineageTag: 44ba432e-7bd7-4d60-8bb0-daf64dee4359
+		summarizeBy: sum
+		sourceColumn: horas_trabalhadas_decimal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column flag_ausencia
+		dataType: string
+		lineageTag: eb98a620-930b-4401-b265-d2f896508760
+		summarizeBy: none
+		sourceColumn: flag_ausencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_registro_incompleto
+		dataType: string
+		lineageTag: 04150b6d-a4cf-4f8e-a9d0-62435d53615d
+		summarizeBy: none
+		sourceColumn: flag_registro_incompleto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fPonto = m
+		mode: import
+		source =
+				let
+				    Fonte = Odbc.DataSource("dsn=PostgreSQL35W", [HierarchicalNavigation=true]),
+				    postgres_Database = Fonte{[Name="postgres",Kind="Database"]}[Data],
+				    gold_Schema = postgres_Database{[Name="gold",Kind="Schema"]}[Data],
+				    fPonto_Table = gold_Schema{[Name="fPonto",Kind="Table"]}[Data]
+				in
+				    fPonto_Table
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

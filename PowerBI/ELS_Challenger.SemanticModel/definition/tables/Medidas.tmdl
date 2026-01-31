@@ -1,0 +1,136 @@
+table Medidas
+	lineageTag: 591d39a0-0641-4496-944d-d1a906b46fbb
+
+	measure 'Total Funcionarios' = DISTINCTCOUNT(dFuncionarios[funcionarioid])
+		formatString: #,0
+		lineageTag: ef38fc26-a779-45f6-889e-96b9fccbaf7a
+
+	measure 'Salário Médio' = AVERAGE(fFolhaPagamento[salario_base])
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: c63f2300-3577-44e1-bed5-483a85b5682a
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Custo Saúde' = SUM(fFolhaPagamento[custo_plano_saude])
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: b94b77d8-adbb-427d-81e2-9f160f08f930
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Total Salário' = sum(fFolhaPagamento[salario_base])
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: fce27abf-e812-4a4f-965b-085704ee5ba3
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Custo Total Folha' = [Total Salário] + [Custo Saúde]
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 6b2b206f-70a0-459a-9512-dc187496c75a
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Media Horas' = AVERAGE(fPonto[horas_trabalhadas_decimal])
+		lineageTag: 0bb44e19-2a9d-4516-92f1-23e9a4050676
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Ausencias' =
+			
+			
+			CALCULATE(
+			    COUNTROWS(fPonto),
+			    fPonto[flag_ausencia] = "1"
+			)
+		formatString: 0
+		lineageTag: cc1aa961-781b-4ff5-9c63-be54b7a06a24
+
+	measure 'Registros incompletos' =
+			
+			
+			CALCULATE(
+			    COUNTROWS(fPonto),
+			    fPonto[flag_registro_incompleto] = 1
+			)
+		formatString: 0
+		lineageTag: 68b1b97a-baaf-48ff-83e2-07ef9ef46c4c
+
+	measure 'Absenteísmo %' =
+			
+			
+			DIVIDE([Total Ausencias], COUNT(fPonto[pontoid]))
+		lineageTag: 13844ecb-4f90-4ba3-bb4b-ce7006ec5256
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Custo Médio por Funcionário' =
+			
+			DIVIDE(
+			    [Custo Total Folha],
+			    [Total Funcionarios],
+			    0
+			)
+		lineageTag: aa39fd73-ad24-43d8-801f-a24586af98c8
+
+	measure 'Horas Esperadas' = ```
+			
+			
+			VAR DiasUteis = COUNTROWS(
+			                  FILTER(fPonto, fPonto[flag_ausencia] = FALSE()
+			                  )
+			                )
+			
+			VAR JornadaDiaria = 8 
+			
+			RETURN DiasUteis * JornadaDiaria
+			```
+		formatString: 0
+		lineageTag: 4ac4f5d2-28bb-467e-94de-237d6650e526
+
+	measure 'Percentual Horas Cumpridas' =
+			
+			DIVIDE(
+			    [Horas Trabalhadas Totais],
+			    [Horas Esperadas],
+			    0
+			)
+		lineageTag: a2315cb4-f334-46f5-abbe-b5b502938883
+
+	measure 'Horas Trabalhadas Totais' =
+			
+			SUM(fPonto[horas_trabalhadas_decimal])
+		lineageTag: f79b4e18-c133-46e5-9c20-fdd338d9dbf0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top 5 Empresas - Custo' = ```
+			
+			VAR RankingEmpresas = 
+			    ADDCOLUMNS(
+			        VALUES(dEmpresa[nomeempresa]),
+			        "@Custo", [Custo Total Folha]
+			    )
+			VAR Top5 = 
+			    TOPN(5, RankingEmpresas, [@Custo], DESC)
+			RETURN
+			SUMX(Top5, [@Custo])
+			```
+		lineageTag: 5b2d5551-0270-442c-9e3c-5b185de81b65
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value
+		isHidden
+		formatString: 0
+		lineageTag: a3654feb-e3d8-4442-a125-f2fef4722704
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Medidas = calculated
+		mode: import
+		source = {1}
+
+	annotation PBI_Id = 5181e56de59848bcb8f21f6e34f67ef9
+

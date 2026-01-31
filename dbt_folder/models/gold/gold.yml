@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  # --- DIMENSÕES ---
+  - name: dDependentes
+    description: "Dimensão com dados de dependentes e parentesco padronizado."
+    columns:
+      - name: dependenteid
+        tests:
+          - unique
+          - not_null
+      - name: funcionarioid
+        description: "Chave estrangeira para ligação com a dimensão de funcionários."
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dFuncionarios')
+                field: funcionarioid
+
+  - name: dEmpresa
+    description: "Dimensão de empresas com CNPJ recuperado e flag de atividade."
+    columns:
+      - name: empresaid
+        tests:
+          - unique
+          - not_null
+      - name: cnpj_limpo
+        description: "CNPJ tratado apenas com números."
+
+  - name: dFuncionarios
+    description: "Dimensão mestre de funcionários. Inclui cálculos de idade, tempo de empresa e perfil demográfico."
+    columns:
+      - name: funcionarioid
+        tests:
+          - unique
+          - not_null
+      - name: cpf_limpo
+        description: "CPF reconstruído matematicamente (id % 99)."
+      - name: nivel_cargo
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['JUNIOR', 'PLENO', 'SENIOR', 'NAO INFORMADO']
+      - name: idade
+        description: "Idade calculada com base na data de referência 09/05/2027."
+      - name: tempo_empresa
+        description: "Anos de casa calculados até 09/05/2027. Contratos futuros (2030) retornam 0."
+      - name: faixa_etaria
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Até 19 anos', '20 a 29 anos', '30 a 39 anos', '40 a 49 anos', '50 a 59 anos', '60 anos ou mais']
+
+  # --- FATOS ---
+  - name: fFolhaPagamento
+    description: "Fato de custos mensais. Consolida salários e benefícios de plano de saúde."
+    columns:
+      - name: funcionarioid
+        tests:
+          - unique # Garante que cada funcionário tenha apenas uma linha de custo atual
+          - relationships:
+              arguments:
+                to: ref('dFuncionarios')
+                field: funcionarioid
+      - name: empresaid
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dEmpresa')
+                field: empresaid
+
+  - name: fPonto
+    description: "Fato de frequência. Contém registros de jornada e sinalizadores de ausência ou falha de registro."
+    columns:
+      - name: pontoid
+        tests:
+          - unique
+          - not_null
+      - name: data_id
+        description: "Chave de data para ligação com dCalendario."
+      - name: flag_ausencia
+        description: "TRUE se entrada e saída forem nulas (Falta)."
+      - name: flag_registro_incompleto
+        description: "TRUE se apenas um dos batimentos (entrada ou saída) estiver nulo."
+      - name: horas_trabalhadas_decimal
+        description: "Jornada convertida em número decimal para facilitar cálculos de soma e média no BI."

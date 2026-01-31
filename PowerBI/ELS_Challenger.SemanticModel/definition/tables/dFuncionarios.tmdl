@@ -1,0 +1,116 @@
+table dFuncionarios
+	lineageTag: d6e6ba99-06ee-466f-aaa7-1b9c4eb39c78
+
+	column funcionarioid
+		dataType: int64
+		formatString: 0
+		lineageTag: c9a0b20b-d9a8-433f-9c6b-9eee399b9514
+		summarizeBy: none
+		sourceColumn: funcionarioid
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_funcionario
+		dataType: string
+		lineageTag: 7d33bb34-ed7f-45c9-9c0e-6ee7edda6680
+		summarizeBy: none
+		sourceColumn: nome_funcionario
+
+		annotation SummarizationSetBy = Automatic
+
+	column cpf_limpo
+		dataType: string
+		lineageTag: 41674160-be35-4276-85ff-3347cefd8612
+		summarizeBy: none
+		sourceColumn: cpf_limpo
+
+		annotation SummarizationSetBy = Automatic
+
+	column datanascimento
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e48b51cc-c7e9-44ff-a949-733df6bd0aea
+		summarizeBy: none
+		sourceColumn: datanascimento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dataadmissao
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6004d2a1-9cf4-4c58-9119-bca9854f706d
+		summarizeBy: none
+		sourceColumn: dataadmissao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column nomecargo
+		dataType: string
+		lineageTag: 8b6dd985-75bf-4e63-a63a-bf8801248195
+		summarizeBy: none
+		sourceColumn: nomecargo
+
+		annotation SummarizationSetBy = Automatic
+
+	column nivel_cargo
+		dataType: string
+		lineageTag: e1b810c8-7c6d-45ce-a0d2-3f6b1c1c90d8
+		summarizeBy: none
+		sourceColumn: nivel_cargo
+
+		annotation SummarizationSetBy = Automatic
+
+	column qtd_dependentes
+		dataType: int64
+		formatString: 0
+		lineageTag: ac2f633b-5fc4-4beb-9af9-37bf06d5cac0
+		summarizeBy: sum
+		sourceColumn: qtd_dependentes
+
+		annotation SummarizationSetBy = Automatic
+
+	column idade
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c3172c8-5878-41e4-b578-1d15e0a00d69
+		summarizeBy: sum
+		sourceColumn: idade
+
+		annotation SummarizationSetBy = Automatic
+
+	column tempo_empresa
+		dataType: int64
+		formatString: 0
+		lineageTag: 4bc78739-de4c-4fe4-a773-914f21719f33
+		summarizeBy: sum
+		sourceColumn: tempo_empresa
+
+		annotation SummarizationSetBy = Automatic
+
+	column faixa_etaria
+		dataType: string
+		lineageTag: 0a6dedfe-87e6-4531-bed8-af0c56a871a4
+		summarizeBy: none
+		sourceColumn: faixa_etaria
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dFuncionarios = m
+		mode: import
+		source =
+				let
+				    Fonte = Odbc.DataSource("dsn=PostgreSQL35W", [HierarchicalNavigation=true]),
+				    postgres_Database = Fonte{[Name="postgres",Kind="Database"]}[Data],
+				    gold_Schema = postgres_Database{[Name="gold",Kind="Schema"]}[Data],
+				    dFuncionarios_Table = gold_Schema{[Name="dFuncionarios",Kind="Table"]}[Data]
+				in
+				    dFuncionarios_Table
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

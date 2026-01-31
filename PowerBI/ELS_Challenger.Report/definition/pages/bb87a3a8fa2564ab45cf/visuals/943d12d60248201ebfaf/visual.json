@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "943d12d60248201ebfaf",
+  "position": {
+    "x": 29.201520912547529,
+    "y": 189.80988593155894,
+    "z": 5,
+    "height": 305.39923954372625,
+    "width": 610.79847908745251,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "treemap",
+    "query": {
+      "queryState": {
+        "Group": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dFuncionarios"
+                    }
+                  },
+                  "Property": "nivel_cargo"
+                }
+              },
+              "queryRef": "dFuncionarios.nivel_cargo",
+              "nativeQueryRef": "nivel_cargo",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Custo Total Folha"
+                }
+              },
+              "queryRef": "Medidas.Custo Total",
+              "nativeQueryRef": "Custo Total"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a976f2e48bc00d09a36d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dFuncionarios"
+              }
+            },
+            "Property": "nivel_cargo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ec334add099ff59050d9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Custo Total Folha"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

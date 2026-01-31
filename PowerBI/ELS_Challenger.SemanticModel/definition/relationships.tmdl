@@ -1,0 +1,24 @@
+relationship AutoDetected_cb70cfb1-bbe0-45b2-8c39-822375adab8d
+	fromColumn: fFolhaPagamento.funcionarioid
+	toColumn: dFuncionarios.funcionarioid
+
+relationship AutoDetected_2e9c2830-b537-4146-b69b-7b7b6771e8b9
+	fromColumn: fPonto.funcionarioid
+	toColumn: dFuncionarios.funcionarioid
+
+relationship AutoDetected_ee40ec27-78a1-4a1d-bbd2-778a929433b1
+	fromColumn: fFolhaPagamento.empresaid
+	toColumn: dEmpresa.empresaid
+
+relationship f0949091-cf33-4d36-f451-b3bb08ad9e95
+	fromColumn: dDependentes.funcionarioid
+	toColumn: dFuncionarios.funcionarioid
+
+relationship 2c1b5971-ae3b-8258-2975-23b94c643fec
+	fromColumn: fPonto.data_id
+	toColumn: dCalendario.Data
+
+relationship a5daed7d-dfe1-2e42-dcb1-b99219860cfd
+	fromColumn: fPonto.horaentrada_limpa
+	toColumn: dHora.Hora
+

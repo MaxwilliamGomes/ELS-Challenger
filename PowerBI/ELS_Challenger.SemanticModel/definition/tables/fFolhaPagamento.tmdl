@@ -1,0 +1,64 @@
+table fFolhaPagamento
+	lineageTag: 1f2aaede-fc77-43bf-8fb2-28798c06ae09
+
+	column funcionarioid
+		dataType: int64
+		formatString: 0
+		lineageTag: ad9608bd-d7c9-46fa-8f31-5a8f6449909a
+		summarizeBy: none
+		sourceColumn: funcionarioid
+
+		annotation SummarizationSetBy = Automatic
+
+	column empresaid
+		dataType: int64
+		formatString: 0
+		lineageTag: 793c8687-3fb6-44fc-a247-3a9263ab0ee6
+		summarizeBy: none
+		sourceColumn: empresaid
+
+		annotation SummarizationSetBy = Automatic
+
+	column salario_base
+		dataType: double
+		lineageTag: 04884db0-66a6-4c78-8514-9fd555710b98
+		summarizeBy: sum
+		sourceColumn: salario_base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column custo_plano_saude
+		dataType: double
+		lineageTag: 6e522940-b542-4f2c-852c-afef4b8f5db0
+		summarizeBy: sum
+		sourceColumn: custo_plano_saude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nome_plano
+		dataType: string
+		lineageTag: 43f776fb-966a-4949-b602-58ce06888d8a
+		summarizeBy: none
+		sourceColumn: nome_plano
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fFolhaPagamento = m
+		mode: import
+		source =
+				let
+				    Fonte = Odbc.DataSource("dsn=PostgreSQL35W", [HierarchicalNavigation=true]),
+				    postgres_Database = Fonte{[Name="postgres",Kind="Database"]}[Data],
+				    gold_Schema = postgres_Database{[Name="gold",Kind="Schema"]}[Data],
+				    fFolhaPagamento_Table = gold_Schema{[Name="fFolhaPagamento",Kind="Table"]}[Data]
+				in
+				    fFolhaPagamento_Table
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "ELS_Challenger"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "bafc76dd-4c49-4b23-84de-9b3069e8713d"
+  }
+}
