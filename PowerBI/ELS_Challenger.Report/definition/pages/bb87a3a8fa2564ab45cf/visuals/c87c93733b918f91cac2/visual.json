@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "6273bb5872d33a63b2c0",
+  "name": "c87c93733b918f91cac2",
   "position": {
-    "x": 904.41609421000976,
+    "x": 1080.2747791952895,
     "y": 69.0873405299313,
-    "z": 1000,
+    "z": 5000,
     "height": 96.722276741903826,
-    "width": 160.78508341511284,
-    "tabOrder": 1000
+    "width": 170.83415112855741,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "card",
@@ -23,11 +23,11 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Custo Médio por Funcionário"
+                  "Property": "% Custo Plano sobre Folha"
                 }
               },
-              "queryRef": "Medidas.Custo Médio por Funcionário",
-              "nativeQueryRef": "Custo Médio por Funcionário"
+              "queryRef": "Medidas.% Custo Plano sobre Folha",
+              "nativeQueryRef": "% Custo Plano sobre Folha"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Custo Médio por Funcionário"
+                "Property": "% Custo Plano sobre Folha"
               }
             },
             "direction": "Descending"

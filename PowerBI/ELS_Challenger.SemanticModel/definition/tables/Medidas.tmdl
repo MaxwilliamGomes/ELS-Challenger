@@ -1,7 +1,13 @@
 table Medidas
 	lineageTag: 591d39a0-0641-4496-944d-d1a906b46fbb
 
-	measure 'Total Funcionarios' = DISTINCTCOUNT(dFuncionarios[funcionarioid])
+	measure 'Total Funcionarios' = ```
+			
+			CALCULATE(
+			DISTINCTCOUNT(dFuncionarios[funcionarioid]), 
+			  CROSSFILTER(fFolhaPagamento[funcionarioid],dFuncionarios[funcionarioid],Both)
+			)
+			```
 		formatString: #,0
 		lineageTag: ef38fc26-a779-45f6-889e-96b9fccbaf7a
 
@@ -49,7 +55,7 @@ table Medidas
 			
 			CALCULATE(
 			    COUNTROWS(fPonto),
-			    fPonto[flag_registro_incompleto] = 1
+			    fPonto[flag_registro_incompleto] = "1"
 			)
 		formatString: 0
 		lineageTag: 68b1b97a-baaf-48ff-83e2-07ef9ef46c4c
@@ -58,9 +64,8 @@ table Medidas
 			
 			
 			DIVIDE([Total Ausencias], COUNT(fPonto[pontoid]))
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 13844ecb-4f90-4ba3-bb4b-ce7006ec5256
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Custo Médio por Funcionário' =
 			
@@ -69,13 +74,16 @@ table Medidas
 			    [Total Funcionarios],
 			    0
 			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		lineageTag: aa39fd73-ad24-43d8-801f-a24586af98c8
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure 'Horas Esperadas' = ```
 			
 			
 			VAR DiasUteis = COUNTROWS(
-			                  FILTER(fPonto, fPonto[flag_ausencia] = FALSE()
+			                  FILTER(fPonto, fPonto[flag_ausencia] = "0"
 			                  )
 			                )
 			
@@ -93,14 +101,16 @@ table Medidas
 			    [Horas Esperadas],
 			    0
 			)
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: a2315cb4-f334-46f5-abbe-b5b502938883
 
 	measure 'Horas Trabalhadas Totais' =
 			
 			SUM(fPonto[horas_trabalhadas_decimal])
+		formatString: 0
 		lineageTag: f79b4e18-c133-46e5-9c20-fdd338d9dbf0
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Top 5 Empresas - Custo' = ```
 			
@@ -117,6 +127,40 @@ table Medidas
 		lineageTag: 5b2d5551-0270-442c-9e3c-5b185de81b65
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Custo Plano sobre Folha' =
+			
+			DIVIDE(
+			    [Custo Saúde],
+			    [Custo Total Folha],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0bdf7ff0-58a7-42da-a331-cfd641509a51
+
+	measure 'Custo Médio Plano Saúde' =
+			
+			AVERAGE(fFolhaPagamento[custo_plano_saude])
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 09458a1a-483a-4583-b3a1-a34f4b5c2eaa
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '% Impacto no Custo Total' =
+			
+			VAR CustoEmpresaSelecionada = [Custo Total Folha]
+			VAR CustoTotalDoGrupo = CALCULATE([Custo Total Folha], ALL(dEmpresa))
+			RETURN
+			DIVIDE(CustoEmpresaSelecionada, CustoTotalDoGrupo)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 82272e81-4f67-4eda-829d-b0496821f8e9
+
+	measure 'Tendência Icone' =
+			
+			VAR MesAnterior = CALCULATE([Absenteísmo %], PREVIOUSMONTH(dCalendario[Data]))
+			RETURN
+			IF([Absenteísmo %] > MesAnterior, "▲", "▼")
+		lineageTag: d4cb2861-04a0-47d5-a07c-ba3618107760
 
 	column Value
 		isHidden

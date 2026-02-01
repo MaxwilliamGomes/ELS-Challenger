@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "943d12d60248201ebfaf",
+  "name": "65ae5ad470bbe1a3b0ab",
   "position": {
-    "x": 517.60741364785167,
-    "y": 15.096882898062342,
-    "z": 3000,
-    "height": 181.16259477674811,
-    "width": 387.12721145745576,
-    "tabOrder": 3000
+    "x": 621.78606476938171,
+    "y": 126.86947988223748,
+    "z": 3001,
+    "height": 286.39842983316976,
+    "width": 286.39842983316976,
+    "tabOrder": 3001
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "dFuncionarios.nivel_cargo",
-              "nativeQueryRef": "nivel_cargo",
-              "active": true
+              "nativeQueryRef": "Cargo",
+              "active": true,
+              "displayName": "Cargo"
             }
           ]
         },
@@ -42,11 +43,11 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Salário Médio"
+                  "Property": "Absenteísmo %"
                 }
               },
-              "queryRef": "Medidas.Salário Médio",
-              "nativeQueryRef": "Salário Médio"
+              "queryRef": "Medidas.Absenteísmo %",
+              "nativeQueryRef": "Absenteísmo %"
             }
           ]
         }
@@ -61,7 +62,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Salário Médio"
+                "Property": "Absenteísmo %"
               }
             },
             "direction": "Descending"
@@ -71,33 +72,20 @@
       }
     },
     "objects": {
-      "legend": [
+      "valueAxis": [
         {
           "properties": {
-            "showGradientLegend": {
+            "showAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             },
-            "show": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
                 }
               }
             }
@@ -120,24 +108,18 @@
                   "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
                 }
               }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "show": {
+            },
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "9D"
                 }
               }
             },
-            "showAxisTitle": {
+            "maxMarginFactor": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "31L"
                 }
               }
             }
@@ -150,7 +132,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "5886f4e7b6f987093dff",
+        "name": "9d4d540d083256f04527",
         "field": {
           "Column": {
             "Expression": {
@@ -220,6 +202,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "a5ceeb816de23015b0e6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Absenteísmo %"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

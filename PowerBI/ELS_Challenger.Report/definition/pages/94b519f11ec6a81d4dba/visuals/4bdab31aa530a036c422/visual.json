@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "4bdab31aa530a036c422",
   "position": {
-    "x": 37.458957887223413,
-    "y": 399.25767309064958,
-    "z": 2,
-    "height": 255.8172733761599,
-    "width": 383.72591006423983,
-    "tabOrder": 2
+    "x": 916.97742885181549,
+    "y": 425.82924435721293,
+    "z": 1000,
+    "height": 281.3738959764475,
+    "width": 346.69283611383707,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -27,13 +27,9 @@
                 }
               },
               "queryRef": "dFuncionarios.nome_funcionario",
-              "nativeQueryRef": "nome_funcionario",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
+              "nativeQueryRef": "Funcionario",
+              "displayName": "Funcionario"
+            },
             {
               "field": {
                 "Measure": {
@@ -42,52 +38,41 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Total Ausencias"
+                  "Property": "Registros incompletos"
                 }
               },
-              "queryRef": "Medidas.Total Ausencias",
-              "nativeQueryRef": "Total Ausencias"
+              "queryRef": "Medidas.Registros incompletos",
+              "nativeQueryRef": "Registros incompletos"
             }
           ]
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Medidas"
-                  }
-                },
-                "Property": "Total Ausencias"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "88.24238876705938D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Registros incompletos"
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "2a4ac20448d695f3fec3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Total Ausencias"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "7ba36b9d513d4fba51ec",
         "field": {
@@ -159,6 +144,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "c581298b73d428206aa2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Registros incompletos"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

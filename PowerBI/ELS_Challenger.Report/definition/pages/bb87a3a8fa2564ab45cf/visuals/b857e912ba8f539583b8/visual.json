@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "b857e912ba8f539583b8",
   "position": {
-    "x": 29.201520912547529,
-    "y": 495.20912547528513,
-    "z": 6,
-    "height": 215.36121673003802,
-    "width": 610.79847908745251,
-    "tabOrder": 6
+    "x": 506.22178606476933,
+    "y": 360.51030421982335,
+    "z": 4000,
+    "height": 336.6437684003925,
+    "width": 342.92443572129537,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "barChart",
@@ -71,37 +71,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "acc41f3334c5927fd2de",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dFuncionarios"
-              }
-            },
-            "Property": "faixa_etaria"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ac877cac066100c8ff24",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Total Funcionarios"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

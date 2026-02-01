@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "943d12d60248201ebfaf",
+  "name": "5529605e471b3c429bf4",
   "position": {
-    "x": 517.60741364785167,
-    "y": 15.096882898062342,
-    "z": 3000,
-    "height": 181.16259477674811,
-    "width": 387.12721145745576,
-    "tabOrder": 3000
+    "x": 621.78606476938171,
+    "y": 425.82924435721293,
+    "z": 3002,
+    "height": 281.3738959764475,
+    "width": 286.39842983316976,
+    "tabOrder": 3002
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "dFuncionarios.nivel_cargo",
-              "nativeQueryRef": "nivel_cargo",
-              "active": true
+              "nativeQueryRef": "Cargo",
+              "active": true,
+              "displayName": "Cargo"
             }
           ]
         },
@@ -42,11 +43,25 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Salário Médio"
+                  "Property": "Horas Trabalhadas Totais"
                 }
               },
-              "queryRef": "Medidas.Salário Médio",
-              "nativeQueryRef": "Salário Médio"
+              "queryRef": "Medidas.Horas Trabalhadas Totais",
+              "nativeQueryRef": "Horas Trabalhadas Totais"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Horas Esperadas"
+                }
+              },
+              "queryRef": "Medidas.Horas Esperadas",
+              "nativeQueryRef": "Horas Esperadas"
             }
           ]
         }
@@ -61,7 +76,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Salário Médio"
+                "Property": "Horas Trabalhadas Totais"
               }
             },
             "direction": "Descending"
@@ -71,13 +86,20 @@
       }
     },
     "objects": {
-      "legend": [
+      "valueAxis": [
         {
           "properties": {
-            "showGradientLegend": {
+            "showAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
                 }
               }
             },
@@ -85,19 +107,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }
@@ -120,24 +129,18 @@
                   "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
                 }
               }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "show": {
+            },
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "9D"
                 }
               }
             },
-            "showAxisTitle": {
+            "maxMarginFactor": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "31L"
                 }
               }
             }
@@ -150,7 +153,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "5886f4e7b6f987093dff",
+        "name": "9d4d540d083256f04527",
         "field": {
           "Column": {
             "Expression": {
@@ -220,6 +223,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "380c7e4fc86a3acd7861",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Horas Trabalhadas Totais"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3e25287196405346ba3f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Horas Esperadas"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

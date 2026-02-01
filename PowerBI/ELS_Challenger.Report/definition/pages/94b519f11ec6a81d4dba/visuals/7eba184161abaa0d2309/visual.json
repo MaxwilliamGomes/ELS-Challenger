@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "1e9ce8b4f883a4aa88e8",
+  "name": "7eba184161abaa0d2309",
   "position": {
-    "x": 470.41742286751361,
-    "y": 94.083484573502716,
-    "z": 1,
-    "height": 80.145190562613422,
-    "width": 213.72050816696915,
-    "tabOrder": 1
+    "x": 640.62806673209025,
+    "y": 26.378802747791951,
+    "z": 3006,
+    "height": 72.855740922473,
+    "width": 218.56722276741903,
+    "tabOrder": 3006
   },
   "visual": {
     "visualType": "card",
@@ -23,11 +23,11 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Total Salário"
+                  "Property": "Percentual Horas Cumpridas"
                 }
               },
-              "queryRef": "Medidas.Total Salário",
-              "nativeQueryRef": "Total Salário"
+              "queryRef": "Medidas.Percentual Horas Cumpridas",
+              "nativeQueryRef": "Percentual Horas Cumpridas"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Total Salário"
+                "Property": "Percentual Horas Cumpridas"
               }
             },
             "direction": "Descending"
@@ -51,34 +51,12 @@
         "isDefaultSort": true
       }
     },
-    "objects": {
-      "labels": [
-        {
-          "properties": {
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "2L"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "fdafc46d69ab627a2930",
+        "name": "76a79b342ea27c95aae0",
         "field": {
           "Measure": {
             "Expression": {
@@ -86,7 +64,7 @@
                 "Entity": "Medidas"
               }
             },
-            "Property": "Total Salário"
+            "Property": "Percentual Horas Cumpridas"
           }
         },
         "type": "Advanced"

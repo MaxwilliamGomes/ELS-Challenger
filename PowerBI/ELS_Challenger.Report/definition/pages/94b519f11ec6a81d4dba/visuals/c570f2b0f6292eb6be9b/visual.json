@@ -1,19 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "943d12d60248201ebfaf",
+  "name": "c570f2b0f6292eb6be9b",
   "position": {
-    "x": 517.60741364785167,
-    "y": 15.096882898062342,
+    "x": 908.18449460255147,
+    "y": 126.86947988223748,
     "z": 3000,
-    "height": 181.16259477674811,
-    "width": 387.12721145745576,
+    "height": 286.39842983316976,
+    "width": 355.48577036310104,
     "tabOrder": 3000
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -23,17 +23,13 @@
                       "Entity": "dFuncionarios"
                     }
                   },
-                  "Property": "nivel_cargo"
+                  "Property": "nome_funcionario"
                 }
               },
-              "queryRef": "dFuncionarios.nivel_cargo",
-              "nativeQueryRef": "nivel_cargo",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
+              "queryRef": "dFuncionarios.nome_funcionario",
+              "nativeQueryRef": "Funcionario",
+              "displayName": "Funcionario"
+            },
             {
               "field": {
                 "Measure": {
@@ -42,11 +38,26 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Salário Médio"
+                  "Property": "Total Ausencias"
                 }
               },
-              "queryRef": "Medidas.Salário Médio",
-              "nativeQueryRef": "Salário Médio"
+              "queryRef": "Medidas.Total Ausencias",
+              "nativeQueryRef": "Ausências",
+              "displayName": "Ausências"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Absenteísmo %"
+                }
+              },
+              "queryRef": "Medidas.Absenteísmo %",
+              "nativeQueryRef": "Absenteísmo %"
             }
           ]
         }
@@ -61,7 +72,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Salário Médio"
+                "Property": "Total Ausencias"
               }
             },
             "direction": "Descending"
@@ -70,87 +81,12 @@
         "isDefaultSort": true
       }
     },
-    "objects": {
-      "legend": [
-        {
-          "properties": {
-            "showGradientLegend": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "5886f4e7b6f987093dff",
+        "name": "7ba36b9d513d4fba51ec",
         "field": {
           "Column": {
             "Expression": {
@@ -158,7 +94,7 @@
                 "Entity": "dFuncionarios"
               }
             },
-            "Property": "nivel_cargo"
+            "Property": "nome_funcionario"
           }
         },
         "type": "Categorical",
@@ -185,7 +121,7 @@
                                 "Source": "d"
                               }
                             },
-                            "Property": "nivel_cargo"
+                            "Property": "nome_funcionario"
                           }
                         }
                       ],
@@ -220,6 +156,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "bf838e445a4805142a5b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Total Ausencias"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3ec755479d8255cdf9e8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Absenteísmo %"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

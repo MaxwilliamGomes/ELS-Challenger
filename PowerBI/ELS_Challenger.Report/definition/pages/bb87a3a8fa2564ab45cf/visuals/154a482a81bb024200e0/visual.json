@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "154a482a81bb024200e0",
   "position": {
-    "x": 968.71143375680583,
-    "y": 94.083484573502716,
-    "z": 4,
-    "height": 80.145190562613422,
-    "width": 243.92014519056261,
-    "tabOrder": 4
+    "x": 292.86549707602336,
+    "y": 92.631578947368411,
+    "z": 2000,
+    "height": 72.982456140350877,
+    "width": 212.39766081871343,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -74,23 +74,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fcae2773dc165924b0f1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Custo Total Folha"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
