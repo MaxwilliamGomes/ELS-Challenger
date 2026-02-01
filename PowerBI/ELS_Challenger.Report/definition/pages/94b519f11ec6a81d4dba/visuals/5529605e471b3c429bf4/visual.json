@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "5529605e471b3c429bf4",
   "position": {
-    "x": 621.78606476938171,
-    "y": 425.82924435721293,
-    "z": 3002,
-    "height": 281.3738959764475,
-    "width": 286.39842983316976,
-    "tabOrder": 3002
+    "x": 674.26771653543312,
+    "y": 426.3307086614173,
+    "z": 5000,
+    "height": 281.1968503937008,
+    "width": 289.25984251968504,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -223,34 +223,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "380c7e4fc86a3acd7861",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Horas Trabalhadas Totais"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3e25287196405346ba3f",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Horas Esperadas"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

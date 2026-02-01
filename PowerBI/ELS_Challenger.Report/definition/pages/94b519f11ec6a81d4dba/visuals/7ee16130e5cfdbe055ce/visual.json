@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "7ee16130e5cfdbe055ce",
   "position": {
-    "x": 37.684003925417073,
-    "y": 425.82924435721293,
+    "x": 133.03937007874015,
+    "y": 426.3307086614173,
     "z": 2000,
-    "height": 281.3738959764475,
-    "width": 584.10206084396464,
+    "height": 281.1968503937008,
+    "width": 541.22834645669286,
     "tabOrder": 2000
   },
   "visual": {
@@ -119,51 +119,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "d753e300468245a22fcf",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dCalendario"
-              }
-            },
-            "Property": "NomeMes"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a03d7dcb65dbba10fef2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Horas Trabalhadas Totais"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "03bde9c104546fe41ddb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Horas Esperadas"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

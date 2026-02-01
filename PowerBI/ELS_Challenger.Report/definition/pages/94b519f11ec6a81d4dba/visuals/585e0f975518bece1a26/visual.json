@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "585e0f975518bece1a26",
   "position": {
-    "x": 232.38469087340528,
-    "y": 26.378802747791951,
-    "z": 3004,
-    "height": 72.855740922473,
-    "width": 177.11481844946024,
-    "tabOrder": 3004
+    "x": 336.62992125984255,
+    "y": 26.204724409448819,
+    "z": 7000,
+    "height": 72.566929133858267,
+    "width": 176.37795275590551,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "card",
@@ -52,23 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ebaeaee740557a5b9801",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Total Ausencias"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

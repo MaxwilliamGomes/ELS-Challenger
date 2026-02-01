@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "65ae5ad470bbe1a3b0ab",
   "position": {
-    "x": 621.78606476938171,
-    "y": 126.86947988223748,
-    "z": 3001,
-    "height": 286.39842983316976,
-    "width": 286.39842983316976,
-    "tabOrder": 3001
+    "x": 674.26771653543312,
+    "y": 126.99212598425197,
+    "z": 4000,
+    "height": 286.23622047244095,
+    "width": 289.25984251968504,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "barChart",
@@ -202,20 +202,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "a5ceeb816de23015b0e6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Absenteísmo %"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

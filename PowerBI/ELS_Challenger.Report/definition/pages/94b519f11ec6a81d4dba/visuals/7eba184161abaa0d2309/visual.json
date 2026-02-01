@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "7eba184161abaa0d2309",
   "position": {
-    "x": 640.62806673209025,
-    "y": 26.378802747791951,
-    "z": 3006,
-    "height": 72.855740922473,
-    "width": 218.56722276741903,
-    "tabOrder": 3006
+    "x": 690.3937007874016,
+    "y": 26.204724409448819,
+    "z": 9000,
+    "height": 72.566929133858267,
+    "width": 217.70078740157481,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "card",
@@ -52,23 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "76a79b342ea27c95aae0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Percentual Horas Cumpridas"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

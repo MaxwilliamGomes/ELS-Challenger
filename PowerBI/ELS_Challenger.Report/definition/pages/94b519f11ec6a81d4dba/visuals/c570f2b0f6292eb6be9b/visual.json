@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "c570f2b0f6292eb6be9b",
   "position": {
-    "x": 908.18449460255147,
-    "y": 126.86947988223748,
+    "x": 963.5275590551181,
+    "y": 126.99212598425197,
     "z": 3000,
-    "height": 286.39842983316976,
-    "width": 355.48577036310104,
+    "height": 286.23622047244095,
+    "width": 300.34645669291336,
     "tabOrder": 3000
   },
   "visual": {
@@ -156,34 +156,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "bf838e445a4805142a5b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Total Ausencias"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3ec755479d8255cdf9e8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Absenteísmo %"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

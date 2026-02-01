@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "411745ab0a3bff61e3e2",
   "position": {
-    "x": 429.59764474975464,
-    "y": 26.378802747791951,
-    "z": 3005,
-    "height": 72.855740922473,
-    "width": 177.11481844946024,
-    "tabOrder": 3005
+    "x": 513.007874015748,
+    "y": 26.204724409448819,
+    "z": 8000,
+    "height": 72.566929133858267,
+    "width": 177.38582677165354,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "card",
@@ -52,23 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "af044eb5991710ea6408",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Registros incompletos"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

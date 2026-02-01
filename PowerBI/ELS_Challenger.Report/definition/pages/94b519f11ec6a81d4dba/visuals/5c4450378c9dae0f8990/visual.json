@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "5c4450378c9dae0f8990",
   "position": {
-    "x": 37.684003925417073,
-    "y": 126.86947988223748,
+    "x": 133.03937007874015,
+    "y": 126.99212598425197,
     "z": 0,
-    "height": 286.39842983316976,
-    "width": 584.10206084396464,
+    "height": 286.23622047244095,
+    "width": 541.22834645669286,
     "tabOrder": 0
   },
   "visual": {
@@ -98,37 +98,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "5a9ff68dcdc9e9257726",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dCalendario"
-              }
-            },
-            "Property": "NomeMes"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "8279a9cee359b6a6cf1d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Absenteísmo %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "00682947ff8bae9c83ea",
   "position": {
-    "x": 428.34151128557409,
-    "y": 214.79882237487732,
+    "x": 621.85826771653547,
+    "y": 313.44881889763781,
     "z": 7000,
-    "height": 80.392541707556418,
-    "width": 282.63002944062805,
+    "height": 55.433070866141733,
+    "width": 297.32283464566927,
     "tabOrder": 7000
   },
   "visual": {
@@ -51,6 +51,54 @@
       "general": [
         {
           "properties": {}
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cargo'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ]
     },

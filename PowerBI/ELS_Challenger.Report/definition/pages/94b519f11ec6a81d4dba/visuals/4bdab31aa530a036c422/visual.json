@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "4bdab31aa530a036c422",
   "position": {
-    "x": 916.97742885181549,
-    "y": 425.82924435721293,
+    "x": 963.5275590551181,
+    "y": 426.3307086614173,
     "z": 1000,
-    "height": 281.3738959764475,
-    "width": 346.69283611383707,
+    "height": 281.1968503937008,
+    "width": 300.34645669291336,
     "tabOrder": 1000
   },
   "visual": {
@@ -144,20 +144,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "c581298b73d428206aa2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Medidas"
-              }
-            },
-            "Property": "Registros incompletos"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
