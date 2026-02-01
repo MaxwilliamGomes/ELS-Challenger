@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "0de2e52f5e6dfce4facb",
+  "name": "33e6c1de8ab958e84670",
   "position": {
-    "x": 140.98522167487684,
-    "y": 183.54679802955664,
-    "z": 0,
-    "height": 80.6896551724138,
-    "width": 148.9655172413793,
-    "tabOrder": 0
+    "x": 783.8423645320197,
+    "y": 47.881773399014776,
+    "z": 9000,
+    "height": 71.822660098522164,
+    "width": 151.62561576354679,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "card",
@@ -23,11 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Total Funcionarios"
+                  "Property": "Percentual Horas Cumpridas"
                 }
               },
-              "queryRef": "Medidas.Total Funcionarios",
-              "nativeQueryRef": "Total Funcionarios"
+              "queryRef": "Medidas.Percentual Horas Cumpridas",
+              "nativeQueryRef": "% Horas Cumpridas",
+              "displayName": "% Horas Cumpridas"
             }
           ]
         }
@@ -42,7 +43,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Total Funcionarios"
+                "Property": "Percentual Horas Cumpridas"
               }
             },
             "direction": "Descending"
@@ -58,7 +59,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "18D"
+                  "Value": "15D"
                 }
               }
             },
@@ -80,13 +81,6 @@
       "categoryLabels": [
         {
           "properties": {
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
-                }
-              }
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -108,6 +102,19 @@
             }
           }
         }
+      ],
+      "wordWrap": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -118,6 +125,39 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }

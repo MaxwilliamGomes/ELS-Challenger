@@ -39,14 +39,6 @@ table fFolhaPagamento
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column nome_plano
-		dataType: string
-		lineageTag: 43f776fb-966a-4949-b602-58ce06888d8a
-		summarizeBy: none
-		sourceColumn: nome_plano
-
-		annotation SummarizationSetBy = Automatic
-
 	partition fFolhaPagamento = m
 		mode: import
 		source =
